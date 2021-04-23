@@ -17,12 +17,12 @@ body {
   margin: 0;
   background-image: url(https://oldschool.runescape.wiki/images/c/c9/Tirannwn.png?08cb3);
   background-repeat: no-repeat;
-  cursor: url(./cutearrow.png);
+  cursor: url(./cutearrow.png), pointer;
   }
   
   
   .custom-cursor {
-    cursor: url(./cutearrow.png);
+    cursor: url(./cutearrow.png), pointer;
   }
 
 .fatality {
@@ -32,10 +32,14 @@ background-size: 100%;
 
 h1 {
   
-  min-height: 178px;
+  min-height: 280px;
   min-width: 465px;
-  background-image:url(./titwle);
+  background-image:url(./titlwe.png);
+  background-repeat: no-repeat;
   background-size: contain;
+  background-position: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 .grid {
@@ -71,6 +75,7 @@ button {
 
 p {
   margin: 0;
+  color: darkred;
 }
 
 .mine { 
@@ -102,8 +107,9 @@ p {
 }
 
 .flag {
- background-image: url(./flaggedcrops.png);
-  z-index: 3;
+  background-image: url(./flaggedcrops.png);
+  border-radius: 1px;
+  z-index: 1;
 
 
 }
