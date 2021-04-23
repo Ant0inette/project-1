@@ -1,0 +1,163 @@
+
+9 x 9 grid 
+10 mines
+[opt: timer: counting up]
+alive/dead smiley
+active mines// or flag counter
+left click: inspect/clear
+right click: flag mines
+
+if you left click mine -> mine explodes, all mines revealed, dies.
+
+
+if you flag mine, the mine is marked and flag count goes down.
+
+
+
+before player input:
+
+
+
+   hardcode a board 
+   add an id of covered to all cells
+cells = 81
+mines/flags = 10 
+cellsToClear = 71
+
+
+
+when someone leftclicks anywhere on board, at game start: 
+
+I. if its a mine, explode mine + reveal all mines + you die
+
+   cell[i].addEventlistener('click') =>
+   if clickedCell has a class of mine
+   add a class of explodes to clickedCell
+   remove id #covered  to  all cells with class .mine
+
+   reset game
+
+
+
+II. if its not a .mine:
+    1. If its a clear cell (cell.innerHTML === null , 0?): 
+       (A. dont reveal mine cells:
+         [mine cells display off/covered])
+
+       B.Reveal all empty cells around: 
+        check all around clickedCell --------------> see reveal() below
+        if cell around is clear or numbered: remove #cover
+
+        if cell around is clear, 
+        check around clear cell
+          remove clear cells around clear cell 
+        
+
+
+
+         a. reveal if empty cell on top, bottom, left and right of cell:
+           select and map through cells around 'leftclickedCell'
+           if cellAround.innerHTML = 0 or null: 
+           remove #covered
+
+          b. if those cells are clear, repeat a for revealed clear cells.
+          c. if those cells are numbered, reveal but dont repeat process for numbered cells
+   
+    2. If is a numbered cell: 
+    A.reveal only selected cell
+     cellNumbered add class displayed or remove class covered
+
+
+
+
+
+
+     flagging: 
+
+     add #flag to cell 
+     flagCount --
+
+<next round>
+<...>
+
+
+---------! if you click an uncovered, numbered cell: 
+
+
+
+
+if all the mines are cleared, player wins the game
+   when all the !== mine cells are uncovered,
+     when clearedCells = 70
+    player wins
+
+reset game
+
+
+
+
+
+REVEAL()
+You've clicked a clear cell
+ the cells to 'check' depend on where the clicked cell is. 
+ we try to check all around the cell,
+ we can only check all around cell[index] if :
+
+
+  - cell isnt on top: if (!(index < width))
+  - or bottom row: if (!(index > (width ** 2) - width - 1))
+  - left : if (!(index % width === 0))
+  - or right border: if (!(index % width === width - 1))
+
+    if cell is on top, check all (detailed below) except top 
+     if cell is on bottom, check all except bottom
+     if cell is left upper corner, check all except left and top
+     etc etc 
+    # maybe can add special classes to toprow, bottomrow, and left/right columns,
+    # and an ID to each cornercell. 
+   
+
+   
+
+if none of these apply, 
+we need to check for: 
+ - top of cell: cell[index - width]
+ - below cell: cell[index + width]
+ - left of cell: cell[index - 1]
+ - right of cell: cell [index + 1]
+ - topleft: cell [index - (width - 1)]
+ - topright:cell[index - (width + 1)]
+ - bttmleft: cell[index + (width - 1)]
+ - bttmright: cell[index + (width +1)]
+
+ so, for each of those cells, 
+  if they are not .mine
+  show it (remove #covered)
+
+   if they are clear (innerHTML=== 0 or null)
+     repeat steps with each clear cell found
+     
+
+
+ 
+
+
+
+
+ideas for stretch :
+ first click cant ever end game
+ grid size
+ grid regenerates randomly
+ player treads on surface, animation, rat minesweeper, vinesweeper logic...
+
+
+[I. grid randomly assigns 10 mines to grid; there can only be 1 mine per grid
+
+II. cells around mines have numbers relative to how many mines they border
+
+   1. check for each cell on grid :
+   
+   up, down, left, right, diagonal upleft, upright, downleft, downright
+
+     for every bomb found around, add 1 to cell.innerHTML
+

@@ -1,0 +1,111 @@
+* {
+  box-sizing: border-box;
+}
+
+
+
+body {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 50px;
+  background-color:black;
+  background-position: center ;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  background-image: url(https://oldschool.runescape.wiki/images/c/c9/Tirannwn.png?08cb3);
+  background-repeat: no-repeat;
+  cursor: url(./cutearrow.png);
+  }
+  
+  
+  .custom-cursor {
+    cursor: url(./cutearrow.png);
+  }
+
+.fatality {
+background-image: url(https://www.pngarea.com/pngs/81/950726_game-over-png-game-over-scene-png-download.png);
+background-size: 100%;
+}
+
+h1 {
+  
+  min-height: 178px;
+  min-width: 465px;
+  background-image:url(./Image.png);
+  background-size: contain;
+}
+
+.grid {
+  display: flex;
+  flex-direction: row;
+  width: 400px;
+  height: 400px;
+  flex-wrap: wrap;
+  margin: 30px;
+}
+button {
+  font-family: 'MedievalSharp', cursive;
+  padding-top: 10px;
+  background-size: 100%;
+  background-color: transparent;
+  font-size: 50px;
+
+}
+
+
+.grid div {
+
+  background-size: contain;
+  width: 100%;
+  text-align:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  
+}
+
+
+p {
+  margin: 0;
+}
+
+.mine { 
+  z-index: 0;
+  background-image: url(https://pngimg.com/uploads/rat_mouse/rat_mouse_PNG23551.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+.explosion {
+  z-index: 0;
+  background-image: url(https://www.pngkit.com/png/full/10-107982_rat-paper-rat-png.png);
+
+}
+
+.cover {
+  background-image: url(https://assets.stickpng.com/images/580b57fcd9996e24bc43c2f1.png);
+  background-repeat: no-repeat;
+  z-index: 2;
+  position: relative;
+
+
+}
+
+
+.hiddentext {
+ font-size:0%;
+}
+
+.flag {
+  background-color: yellow;
+  z-index: 3;
+
+
+}
+
+
