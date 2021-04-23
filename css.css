@@ -34,7 +34,7 @@ h1 {
   
   min-height: 178px;
   min-width: 465px;
-  background-image:url(./Image.png);
+  background-image:url(./titwle);
   background-size: contain;
 }
 
@@ -102,7 +102,7 @@ p {
 }
 
 .flag {
-  background-color: yellow;
+ background-image: url(./flaggedcrops.png);
   z-index: 3;
 
 
